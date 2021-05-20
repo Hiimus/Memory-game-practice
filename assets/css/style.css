@@ -1,0 +1,55 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: url(../img/sp-background.png) center center fixed;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+}
+
+.match-game {
+    width: 640px;
+    height: 640px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    perspective: 1000px;
+}
+
+.match-card {
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    position: relative;
+    margin: 5px;
+    transform-style: preserve-3d;
+    transition: transform .4s;
+}
+
+.match-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-facing,
+.back-facing {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.match-card:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+
+.back-facing {
+    transform: rotateY(180deg);
+}
